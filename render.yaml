@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hnpe-backend
+    env: docker
+    repo: https://github.com/gaineziswear/HNPE-PRODUCTION
+    branch: main
+    dockerfilePath: backend/Dockerfile
+  - type: background
+    name: hnpe-bot
+    env: docker
+    repo: https://github.com/gaineziswear/HNPE-PRODUCTION
+    branch: main
+    dockerfilePath: telegram/Dockerfile

@@ -1,0 +1,21 @@
+name: Deploy All Services
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trigger Backend Deploy
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log('Backend deploy triggered by pipeline owner.')
+      - name: Run migrations & post-deploy checks
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          bash scripts/run_migrations.sh
+          bash scripts/post_deploy_check.sh
