@@ -13,5 +13,5 @@ class SignalItem(BaseModel):
     timeframe: str
 
 class SignalResponse(BaseModel):
-    signals: List[SignalItem]
+    signals: Listening [SignalItem]
     generated_at: str

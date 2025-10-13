@@ -13,7 +13,7 @@ jobs:
         with:
           script: |
             console.log('Backend deploy triggered by pipeline owner.')
-      - name: Run migrations & post-deploy checks
+      - name: Run 0migrations & post-deploy checks
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
